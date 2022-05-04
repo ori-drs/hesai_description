@@ -73,7 +73,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        hesai_origin:
+        pandar:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -97,7 +97,7 @@ Visualization Manager:
       Length: 0.10000000149011612
       Name: Hesai Origin
       Radius: 0.0010000000474974513
-      Reference Frame: hesai_origin
+      Reference Frame: pandar
       Value: true
   Enabled: true
   Global Options:

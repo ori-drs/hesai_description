@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<!-- Copyright 2020 University of Oxford
+
+<!-- Copyright 2022 University of Oxford
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -51,13 +52,15 @@
       </geometry>
     </collision>
   </link>
-  <link name="hesai_origin"/>
-  <joint name="hesai_base_to_origin" type="fixed">
+  <link name="pandar"/>
+  <joint name="hesai_base_to_pandar" type="fixed">
     <!-- See page 12 of User Manual -->
-    <origin xyz="0.0 0.0 46.4e-3" rpy="0.0 0.0 0.0"/>
+    <!-- note that the X axis points left. See manual page 11 -->
+    <origin xyz="0.0 0.0 46.4e-3" rpy="0.0 0.0 ${pi/2}"/>
     <parent link="hesai_base"/>
-    <child link="hesai_origin" />
+    <child link="pandar" />
   </joint>
+
   <!-- TODO implement gazebo plugin loading if simulation is true -->
 </xacro:macro>
 
