@@ -20,7 +20,7 @@
 <robot name="hesai" xmlns:xacro="http://www.ros.org/wiki/xacro">
 <xacro:arg name="simulation" default="false" />
 
-<xacro:macro name="hesai_device" params="parent *origin name:=pandar_xt32_lidar simulation:=false">
+<xacro:macro name="hesai_device" params="parent *origin name:=pandar_xt32_lidar simulation:=false lidar_frame:=pandar">
   <joint name="${parent}_to_hesai" type="fixed">
     <xacro:insert_block name="origin"/>
     <parent link="${parent}" />
@@ -52,13 +52,13 @@
       </geometry>
     </collision>
   </link>
-  <link name="pandar"/>
+  <link name="${lidar_frame}"/>
   <joint name="hesai_base_to_pandar" type="fixed">
     <!-- See page 12 of User Manual -->
     <!-- note that the X axis points left. See manual page 11 -->
     <origin xyz="0.0 0.0 46.4e-3" rpy="0.0 0.0 ${pi/2}"/>
     <parent link="hesai_base"/>
-    <child link="pandar" />
+    <child link="${lidar_frame}" />
   </joint>
 
   <!-- TODO implement gazebo plugin loading if simulation is true -->
