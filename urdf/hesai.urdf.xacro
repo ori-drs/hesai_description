@@ -41,7 +41,7 @@
       <!-- CoM taken from CAD assuming constant density and mass 0.807 (best approximation available to real mass) -->
       <origin xyz="-0.015e-3 0.0 37.494e-3" rpy="0 0 0" />
       <!-- mass taken from Hesai datasheet -->
-      <mass value="0.807" /> 
+      <mass value="0.807" />
       <!-- Inertia tensor from CAD assuming constant density and mass 0.807 (best approximation vailable to real mass) -->
       <inertia ixx="886.81e-6" ixy="5.802e-11" ixz="-0.34e-6" iyy="898.12e-6" iyz="-0.014e-6" izz="1004.287e-6" />
     </inertial>
@@ -56,7 +56,7 @@
   <joint name="hesai_base_to_pandar" type="fixed">
     <!-- See page 12 of User Manual -->
     <!-- note that the X axis points left. See manual page 11 -->
-    <origin xyz="0.0 0.0 46.4e-3" rpy="0.0 0.0 ${pi/2}"/>
+    <origin xyz="0.0 0.0 50.4e-3" rpy="0.0 0.0 0.0"/>
     <parent link="hesai_base"/>
     <child link="${lidar_frame}" />
   </joint>
