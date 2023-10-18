@@ -16,13 +16,13 @@
    limitations under the License.
 -->
 
-  <xacro:macro name="hesai_pandar_xt_gazebo" params="lidar_frame:=pandar topic_name=/hesai/pandar
+  <xacro:macro name="hesai_xt_gazebo" params="lidar_frame:=pandar topic_name=/hesai/pandar
                min_range:=0.4 max_range:=80.0 min_horizontal_angle:=-180.0 max_horizontal_angle:=180.0
                min_vertical_angle:=-16.0 max_vertical_angle:=15.0 hz:=10 samples:=2000 lasers:=32
                collision_range:=0.3 noise:=0.008 visualize:=false">
 
     <gazebo reference="${lidar_frame}">
-      <sensor type="ray" name="hesai_pandar_xt-VLP">
+      <sensor type="ray" name="hesai_xt_sensor">
         <pose>0 0 0 0 0 0</pose>
         <visualize>${visualize}</visualize>
         <update_rate>${hz}</update_rate>

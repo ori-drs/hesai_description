@@ -63,7 +63,7 @@
 
   <xacro:if value="${simulation}">
     <xacro:include filename="$(find hesai_description)/urdf/gazebo.xacro"/>
-    <xacro:hesai_pandar_xt_gazebo lidar_frame="${lidar_frame}" topic_name="/hesai/pandar" min_range="0.4" max_range="80.0" 
+    <xacro:hesai_xt_gazebo lidar_frame="${lidar_frame}" topic_name="/hesai/pandar" min_range="0.4" max_range="80.0" 
       min_horizontal_angle="-180.0" max_horizontal_angle="180.0" min_vertical_angle="-16.0" max_vertical_angle="15.0"
       hz="10" samples="2000" lasers="32" collision_range="0.3" noise="0.008"
     />
