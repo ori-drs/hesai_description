@@ -1,6 +1,4 @@
 # hesai_description
-URDF Model of hesai lidar products
+This package contains a **URDF Xacro description of the Hesai XT32 and QT64 lidars**. In simulation the Gazebo Velodyne plug-in is used. The meshes were obtained from the original CAD provided by Hesai.
 
-The mesh was obtained from the original CAD provided by HESAI.
-
-This repository is not associated to or maintained by HESAI.
+This repository is not associated to or maintained by Hesai.

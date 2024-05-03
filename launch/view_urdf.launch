@@ -2,9 +2,11 @@
 <launch>
   <arg name="rviz" default="true" />
   <arg name="simulation" default="true" />
+  <arg name="use_gpu" default="true" />
 
   <include file="$(find hesai_description)/launch/load.launch">
     <arg name="simulation" value="$(arg simulation)"/>
+    <arg name="use_gpu" value="$(arg use_gpu)"/>
   </include>
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />

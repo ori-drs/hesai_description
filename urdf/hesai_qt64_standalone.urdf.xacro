@@ -15,13 +15,14 @@
    limitations under the License. -->
 
 <robot name="hesai" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:include filename="$(find hesai_description)/urdf/hesai.urdf.xacro" />
+  <xacro:include filename="$(find hesai_description)/urdf/hesai_qt64.urdf.xacro" />
   <xacro:arg name="simulation" default="false" />
+  <xacro:arg name="use_gpu" default="true" />
 
   <!-- Dummy link  -->
   <link name="base"/>
 
-  <xacro:hesai_device parent="base" simulation="$(arg simulation)">
+  <xacro:hesai_qt64_device parent="base" simulation="$(arg simulation)" use_gpu="$(arg use_gpu)" >
     <origin xyz="0 0 0" rpy="0 0 0" />
-  </xacro:hesai_device>
+  </xacro:hesai_qt64_device>
 </robot>

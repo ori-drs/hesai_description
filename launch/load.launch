@@ -2,7 +2,8 @@
 
 <launch>
   <arg name="simulation" default="false" />
-  <arg name="model" default="$(find hesai_description)/urdf/hesai_standalone.urdf.xacro" />
+  <arg name="use_gpu" default="true" />
+  <arg name="model" default="$(find hesai_description)/urdf/hesai_qt64_standalone.urdf.xacro" />
 
-  <param name="robot_description" command="xacro $(arg model) simulation:=$(arg simulation)" />
+  <param name="robot_description" command="xacro $(arg model) simulation:=$(arg simulation) use_gpu:=$(arg use_gpu)" />
 </launch>
