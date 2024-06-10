@@ -21,13 +21,15 @@
 <xacro:arg name="simulation" default="false"/>
 <xacro:arg name="use_gpu" default="true"/>
 
-<xacro:macro name="hesai_qt64_device" params="parent *origin name:=pandar_xt32_lidar simulation:=false lidar_frame:=pandar use_gpu:=true">
-  <joint name="${parent}_to_hesai" type="fixed">
+<xacro:macro name="hesai_qt64_device" params="parent *origin prefix:='' name:=pandar_qt64_lidar
+                                              topic_name:=/hesai/pandar
+                                              simulation:=false lidar_frame:=pandar use_gpu:=true">
+  <joint name="${parent}_to_${prefix}hesai" type="fixed">
     <xacro:insert_block name="origin"/>
     <parent link="${parent}" />
-    <child link="hesai_base" />
+    <child link="${prefix}hesai_base" />
   </joint>
-  <link name="hesai_base">
+  <link name="${prefix}hesai_base">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <!-- If mesh is not available: -->
@@ -54,17 +56,17 @@
     </collision>
   </link>
   <link name="${lidar_frame}"/>
-  <joint name="hesai_base_to_pandar" type="fixed">
+  <joint name="${prefix}hesai_base_to_pandar" type="fixed">
     <!-- See page 12 of QT64 User Manual -->
     <!-- note that the X axis points left. See manual page 11 -->
     <origin xyz="0.0 0.0 50.4e-3" rpy="0.0 0.0 ${pi/2}"/>
-    <parent link="hesai_base"/>
+    <parent link="${prefix}hesai_base"/>
     <child link="${lidar_frame}" />
   </joint>
 
   <xacro:if value="${simulation}">
     <xacro:include filename="$(find hesai_description)/urdf/gazebo.urdf.xacro"/>
-    <xacro:hesai_gazebo lidar_frame="${lidar_frame}" topic_name="/hesai/pandar" min_range="0.1" max_range="20.0" 
+    <xacro:hesai_gazebo prefix="${prefix}" lidar_frame="${lidar_frame}" topic_name="${topic_name}" min_range="0.1" max_range="20.0" 
       min_horizontal_angle="-180.0" max_horizontal_angle="180.0" min_vertical_angle="-52.1" max_vertical_angle="52.1"
       hz="10" samples="600" lasers="64" collision_range="0.3" noise="0.008" use_gpu="${use_gpu}"
     />

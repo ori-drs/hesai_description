@@ -16,13 +16,16 @@
 
 <robot name="hesai" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find hesai_description)/urdf/hesai_xt32.urdf.xacro" />
+  <xacro:arg name="prefix" default="" />
   <xacro:arg name="simulation" default="false" />
   <xacro:arg name="use_gpu" default="true" />
 
   <!-- Dummy link  -->
   <link name="base"/>
 
-  <xacro:hesai_xt32_device parent="base" simulation="$(arg simulation)" use_gpu="$(arg use_gpu)" >
+  <xacro:hesai_xt32_device parent="base" prefix="$(arg prefix)"
+    lidar_frame="$(arg prefix)pandar"
+    simulation="$(arg simulation)" use_gpu="$(arg use_gpu)" >
     <origin xyz="0 0 0" rpy="0 0 0" />
   </xacro:hesai_xt32_device>
 </robot>
