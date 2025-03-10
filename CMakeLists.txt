@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.8)
 project(hesai_description)
 
-find_package(catkin REQUIRED COMPONENTS)
+find_package(ament_cmake REQUIRED)
 
-catkin_package()
-
-install(DIRECTORY config launch urdf
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+install(DIRECTORY launch meshes rviz urdf
+  DESTINATION share/${PROJECT_NAME}/
 )
+
+ament_package()
