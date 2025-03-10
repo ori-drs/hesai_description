@@ -1,9 +1,6 @@
 <?xml version="1.0"?>
 <robot name="hesai_xt32" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:arg name="simulation" default="false" />
-  <xacro:arg name="use_gpu" default="true"/>
-
   <xacro:macro name="hesai_xt32" params="parent *origin prefix:='' name:=hesai_xt32
                                         topic_name:=/hesai/pandar
                                         simulation:=false lidar_frame:=pandar use_gpu:=true">
