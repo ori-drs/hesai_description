@@ -3,7 +3,7 @@
 
   <xacro:macro name="hesai_xt32" params="parent *origin prefix:='' name:=hesai_xt32
                                         topic_name:=/hesai/pandar
-                                        simulation:=false lidar_frame:=pandar use_gpu:=true">
+                                        simulation:=false lidar_frame:=pandar">
     <joint name="${parent}_to_${prefix}hesai" type="fixed">
       <xacro:insert_block name="origin"/>
       <parent link="${parent}" />
@@ -44,7 +44,7 @@
       <xacro:include filename="$(find hesai_description)/urdf/gazebo.urdf.xacro"/>
       <xacro:hesai_gazebo prefix="${prefix}" lidar_frame="${lidar_frame}" topic_name="${topic_name}" min_range="0.4" max_range="80.0" 
         min_horizontal_angle="-180.0" max_horizontal_angle="180.0" min_vertical_angle="-16.0" max_vertical_angle="15.0"
-        hz="10" samples="2000" lasers="32" collision_range="0.3" noise="0.008" use_gpu="${use_gpu}"
+        hz="10" samples="2000" lasers="32" collision_range="0.3" noise="0.008"
       />
     </xacro:if>
   </xacro:macro>

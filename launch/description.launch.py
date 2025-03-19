@@ -29,7 +29,7 @@ def generate_launch_description():
     default_xacro_file = PathJoinSubstitution(
         [
             get_package_share_directory('hesai_description'),
-            'urdf', 'hesai_xt32_standalone.urdf.xacro'
+            'urdf', 'hesai_qt64_standalone.urdf.xacro'
         ]
     )
     xacro_file_parameter_arg = DeclareLaunchArgument(
