@@ -14,7 +14,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="file://$(find hesai_description)/meshes/visual/xt32.dae" />
+          <mesh filename="package://hesai_description/meshes/visual/xt32.dae" />
         </geometry>
       </visual>
       <inertial>
