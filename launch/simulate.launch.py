@@ -34,22 +34,42 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             [
                 os.path.join(
-                    get_package_share_directory('gazebo_ros'),
-                    'launch', 'gazebo.launch.py'
+                    get_package_share_directory('ros_gz_sim'),
+                    'launch', 'gz_sim.launch.py'
+                )
+            ]
+        ),
+        launch_arguments={
+            'gz_args': " -r -v 3 fuel.sdf"
+        }.items()
+    )
+    gazebo_spawner_node = Node(
+        package="ros_gz_sim",
+        executable="create",
+        output="screen",
+        arguments=[
+            "-topic",
+            "/robot_description",
+            "-name",
+            "hesai_qt64",
+            "-allow_renaming",
+            "true",
+        ]
+    )
+    gazebo_bridge_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            [
+                os.path.join(
+                    get_package_share_directory('hesai_description'),
+                    'launch', 'gz_bridge.launch.py'
                 )
             ]
         )
-    )
-    gazebo_spawner_node = Node(
-        package='gazebo_ros',
-        executable='spawn_entity.py',
-        name='gazebo_spawner',
-        arguments=['-entity', 'magnet', '-topic', 'robot_description'],
-        output='screen'
     )
 
     ld = LaunchDescription()
     ld.add_action(visualize_launch)
     ld.add_action(gazebo_node)
     ld.add_action(gazebo_spawner_node)
+    ld.add_action(gazebo_bridge_launch)
     return ld

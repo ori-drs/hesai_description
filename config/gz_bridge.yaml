@@ -1,0 +1,5 @@
+- ros_topic_name: /hesai/pandar
+  gz_topic_name: /hesai/pandar/points
+  ros_type_name: sensor_msgs/msg/PointCloud2
+  gz_type_name: gz.msgs.PointCloudPacked
+  direction: GZ_TO_ROS

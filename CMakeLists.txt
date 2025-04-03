@@ -3,7 +3,7 @@ project(hesai_description)
 
 find_package(ament_cmake REQUIRED)
 
-install(DIRECTORY launch meshes rviz urdf
+install(DIRECTORY config launch meshes rviz urdf
   DESTINATION share/${PROJECT_NAME}/
 )
 

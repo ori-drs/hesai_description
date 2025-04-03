@@ -2,19 +2,17 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:macro name="hesai_gazebo" params="prefix lidar_frame:=pandar topic_name=/hesai/pandar
-               min_range:=0.4 max_range:=80.0 min_horizontal_angle:=-180.0 max_horizontal_angle:=180.0
-               min_vertical_angle:=-16.0 max_vertical_angle:=15.0 hz:=10 samples:=2000 lasers:=32
-               collision_range:=0.3 noise:=0.008 visualize:=false">
+               min_range:=0.1 max_range:=80.0 min_horizontal_angle:=-180.0 max_horizontal_angle:=180.0
+               min_vertical_angle:=-16.0 max_vertical_angle:=15.0 hz:=10 samples:=2000 lasers:=32">
 
     <gazebo reference="${lidar_frame}">
-      <sensor name="${prefix}hesai_sensor" type="lidar">
+      <sensor name="${prefix}hesai_sensor" type="gpu_lidar">
         <update_rate>${hz}</update_rate>
-        <visualize>${visualize}</visualize>
+        <visualize>true</visualize>
         <always_on>true</always_on>
         <ignition_frame_id>${lidar_frame}</ignition_frame_id>
         <topic>${topic_name}</topic>
-        <!-- 'ray' for Gazebo Classic, 'lidar' for Ignition -->
-        <ray>
+        <lidar>
           <scan>
             <horizontal>
               <samples>${samples}</samples>
@@ -30,22 +28,11 @@
             </vertical>
           </scan>
           <range>
-            <min>${collision_range}</min>
-            <max>${max_range+1}</max>
+            <min>${min_range}</min>
+            <max>${max_range}</max>
             <resolution>0.01</resolution>
           </range>
-        </ray>
-
-        <plugin name="${prefix}gazebo_ros_laser_controller" filename="libgazebo_ros_velodyne_laser.so">
-          <ros>
-            <remapping>~/out:=${topic_name}</remapping>
-          </ros>
-          <topicName>${topic_name}</topicName>
-          <frameName>${lidar_frame}</frameName> 
-          <min_range>${min_range}</min_range>
-          <max_range>${max_range}</max_range>
-          <gaussianNoise>${noise}</gaussianNoise>
-        </plugin>
+        </lidar>
       </sensor>
     </gazebo>
   </xacro:macro>
