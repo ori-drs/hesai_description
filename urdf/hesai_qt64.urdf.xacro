@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <robot name="hesai_qt64" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="hesai_qt64" params="parent *origin prefix:='' name:=pandar_qt64
+  <xacro:macro name="hesai_qt64" params="parent *origin prefix:='' name:=hesai_lidar_qt64
                                          topic_name:=/hesai/pandar
-                                         simulation:=false lidar_frame:=pandar use_gpu:=true">
+                                         simulation:=false lidar_frame:=hesai_lidar use_gpu:=true">
     <joint name="${parent}_to_${prefix}hesai" type="fixed">
       <xacro:insert_block name="origin"/>
       <parent link="${parent}" />

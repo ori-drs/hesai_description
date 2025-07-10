@@ -9,7 +9,7 @@
 
   <link name="base"/>
 
-  <xacro:hesai_xt32 parent="base" prefix="$(arg prefix)" lidar_frame="$(arg prefix)pandar"
+  <xacro:hesai_xt32 parent="base" prefix="$(arg prefix)" lidar_frame="$(arg prefix)hesai_lidar"
                     simulation="$(arg simulation)" use_gpu="$(arg use_gpu)" >
     <origin xyz="0 0 0" rpy="0 0 0" />
   </xacro:hesai_xt32>
