@@ -72,7 +72,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        pandar:
+        hesai_lidar:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -93,7 +93,7 @@ Visualization Manager:
           Value: true
         hesai_base:
           Value: true
-        pandar:
+        hesai_lidar:
           Value: true
       Marker Scale: 0.5
       Name: TF
@@ -103,7 +103,7 @@ Visualization Manager:
       Tree:
         base:
           hesai_base:
-            pandar:
+            hesai_lidar:
               {}
       Update Interval: 0
       Value: true

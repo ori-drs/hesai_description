@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="hesai_gazebo" params="prefix lidar_frame:=pandar topic_name=/hesai/pandar
+  <xacro:macro name="hesai_gazebo" params="prefix lidar_frame:=hesai_lidar topic_name=/hesai/pandar
                min_range:=0.4 max_range:=80.0 min_horizontal_angle:=-180.0 max_horizontal_angle:=180.0
                min_vertical_angle:=-16.0 max_vertical_angle:=15.0 hz:=10 samples:=2000 lasers:=32
                collision_range:=0.3 noise:=0.008 visualize:=false use_gpu:=true">
